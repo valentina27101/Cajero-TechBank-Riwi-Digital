@@ -1,5 +1,5 @@
 #aqui van todas las funciones
-def despedida():
+funcion_de_despedida():
     from rich.console import Console
     from rich.panel import Panel
 

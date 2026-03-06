@@ -1,7 +1,6 @@
-def authenticacion():
-    intentos_pin = 3 
-
+def authentication(pin, intentos_pin):
     while intentos_pin > 0:
+        
         pin_usuario = input("Ingrese su PIN: ")
     
         # Validar que solo tenga números

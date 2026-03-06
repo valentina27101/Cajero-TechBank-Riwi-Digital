@@ -1,4 +1,4 @@
-def autenticacion():
+def authenticacion():
     intentos_pin = 3 
 
     while intentos_pin > 0:

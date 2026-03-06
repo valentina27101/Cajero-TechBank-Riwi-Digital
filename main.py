@@ -1,23 +1,20 @@
 '''
-#configuracion inicial del sistema
-saldo_inicial = 1000
-pin = 1234
-intentos_pin = 3
-funcion_de_bienvenida()
-autenticacion() # se debe incluir control de intentos 
-menu_operaciones()  #consultar saldo , retirar dinero , depositar dinero , salir
-consultar()
-retirar()
-depositar()
-salir()
-funcion_de_despedida()
+#configuracion inicial del sistema ✅
+saldo_inicial = 1000 ✅
+pin = 1234✅
+intentos_pin = 3 ✅
+funcion_de_bienvenida() ❌
+autenticacion() # se debe incluir control de intentos    ✅
+menu_operaciones()  #consultar saldo , retirar dinero , depositar dinero , salir❌
+consultar() ❌
+retirar()❌
+depositar()❌
+salir()❌
+funcion_de_despedida()❌
 '''
 
-# Saldo Inicial Del Cajero
+from utils import authentication
+# configuracion inicial
 Saldo = 1000
-pin = "1234"
 
-from utils.py import authentication
-
-
-authenticacion()
+authentication(pin = "1234", intentos_pin = 3)

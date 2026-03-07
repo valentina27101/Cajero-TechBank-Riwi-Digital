@@ -131,5 +131,4 @@ def authentication(pin, intentos_pin):
     if intentos_pin == 0:
         clear()
         mensaje_error("Cuenta bloqueada")
-        
         exit()

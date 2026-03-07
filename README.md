@@ -33,11 +33,11 @@ El funcionamiento general del programa sigue el siguiente flujo:
 3. Se presenta el menú principal del cajero.
 
 4. El usuario puede elegir entre:
-   - Consultar saldo.
-   - Retirar dinero.
-   - Depositar dinero.
-   - Historial de movimientos.
-   - Cerrar sesión.
+ - Consultar saldo.
+ - Retirar dinero.
+ - Depositar dinero.
+ - Historial de movimientos.
+ - Cerrar sesión.
 
 5. El sistema valida cada operación antes de ejecutarla.
 

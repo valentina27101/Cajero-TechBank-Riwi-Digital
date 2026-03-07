@@ -5,4 +5,12 @@ Este proyecto consiste en el desarrollo de un cajero automático programado en P
 El sistema permite a los usuarios interactuar mediante un menú para realizar diferentes 
 operaciones bancarias básicas.
 
-## Función
+## Funcionalidades
+- Autenticación con PIN
+
+- Consultar saldo
+- Retirar dinero
+- Depositar dinero
+- Historial de movimientos
+- Cerrar sesión
+

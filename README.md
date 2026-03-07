@@ -1,47 +1,71 @@
-# Cajero-TechBank-Riwi-Digital 🏦
+## Cajero-TechBank-Riwi-Digital
+## Descripción
+Este proyecto tiene como proposito crear un simulador de cajero automático en consola utilizando Python.
+El programa permite que el usuario ingrese un PIN para autenticarse y, una vez dentro del sistema, pueda realizar diferentes operaciones básicas como consultar su saldo, retirar dinero, depositar dinero o ver el historial de movimientos.
 
-Este proyecto es una simulación de un cajero automático desarrollado en Python. Permite a los usuarios realizar operaciones bancarias básicas de manera segura, aplicando validaciones de datos y reglas de negocio financieras.
+## Objetivo
 
-## 📋 Contexto del Proyecto
-Desarrollado para **TechBank Riwi Digital**, este sistema busca simular la interacción real de un cliente con un cajero, gestionando la autenticación, saldos y movimientos de dinero (depósitos y retiros) a través de una interfaz de consola mejorada.
+El objetivo del proyecto es aplicar conceptos básicos de programación en Python, como el uso de funciones, estructuras condicionales, ciclos y validación de datos.
+Además, busca fomentar el trabajo en equipo y el uso de herramientas de control de versiones para el desarrollo colaborativo.
 
-## 🛠️ Estructura del Código
+## Funciones
+El sistema del cajero incluye las siguientes funciones principales:
+- authentication(): se encarga de verificar el PIN del usuario antes de permitir el acceso al sistema.
+- menu_cajero(): muestra el menú principal y permite al usuario seleccionar las operaciones disponibles.
+-Funciones de formato del módulo colores: se utilizan para mostrar mensajes organizados en la consola (títulos, errores, opciones y mensajes de éxito).
 
-El proyecto se divide en tres módulos principales para garantizar una arquitectura limpia y modular:
+## Reglas del sistema
+El cajero sigue algunas reglas para garantizar su correcto funcionamiento:
+- El usuario debe ingresar un PIN de 4 dígitos para acceder al sistema.
+- El PIN solo puede contener números.
+- El usuario tiene un número limitado de intentos para ingresar el PIN.
+- No se puede retirar una cantidad mayor al saldo disponible.
+- No se permiten montos negativos o iguales a cero en depósitos o retiros.
+- El sistema valida que los datos ingresados sean números válidos.
 
-### 1. `main.py` (Punto de Entrada)
-Es el archivo principal que orquesta la ejecución del programa.
-* Define el saldo inicial de **$1000**.
-* Llama a la función de **autenticación** con un PIN predefinido (`1234`) y un límite de 3 intentos.
-* Inicia el `menu_cajero()` una vez que el usuario accede exitosamente.
+## Flujo del cajero
+El funcionamiento general del programa sigue el siguiente flujo:
 
-### 2. `utils.py` (Lógica de Negocio)
-Contiene las funciones core que hacen que el cajero funcione:
-* **`authentication(pin, intentos_pin)`**: 
-    * Valida que el PIN ingresado sea numérico y tenga exactamente 4 dígitos.
-    * Controla el contador de intentos restantes.
-    * Bloquea la cuenta si se agotan los intentos.
-* **`menu_cajero()`**: 
-    * Contiene el bucle principal con las opciones de: *Consultar saldo*, *Retirar*, *Depositar* y *Salir*.
-    * **Validaciones:** Controla que no se retiren montos superiores al saldo disponible ni se ingresen valores negativos o no numéricos.
+1. El sistema solicita al usuario ingresar su PIN.
 
-### 3. `colores.py` (Interfaz Visual)
-Este módulo se encarga de la estética del programa utilizando la librería `rich`.
-* **Paneles:** Organiza la información en cuadros visuales.
-* **Estilos:** Define colores específicos para cada situación:
-    * `mensaje_error`: Rojo (para entradas inválidas o fondos insuficientes).
-    * `mensaje_exito`: Verde (para operaciones exitosas).
-    * `color_opcion`: Amarillo (para guiar al usuario en la selección).
+2. Si el PIN es correcto, el sistema muestra un mensaje de bienvenida.
 
----
+3. Se presenta el menú principal del cajero.
 
-## ⚙️ Requisitos e Instalación
+4. El usuario puede elegir entre:
 
-Para ejecutar este proyecto, necesitas tener instalado Python y la librería `rich` para los efectos visuales.
+ - Consultar saldo.
+ - Retirar dinero.
+ - Depositar dinero.
+ - Historial de movimientos.
+ - Cerrar sesión.
 
-1. **Instalar la dependencia:**
-   ```bash
-   pip install rich
-2. **Ejecutar:**
-   ```python
-   python main.py
+5. El sistema valida cada operación antes de ejecutarla.
+
+6. Cuando el usuario selecciona cerrar sesión, el programa finaliza.
+
+## Estructura del proyecto
+
+main.py → archivo principal que ejecuta el programa  
+utils.py → contiene funciones como authentication() y menu_cajero()  
+colores.py → contiene funciones para mostrar mensajes con formato en consola
+
+## Cómo ejecutar el proyecto
+
+1. Clonar el repositorio.
+2. Abrir el proyecto en Visual Studio Code.
+3. Ejecutar el archivo principal con Python.
+
+## Tecnologías utilizadas
+
+- Python
+- Git
+- Github
+
+## Integrantes
+
+- Mateo Hernandez
+- Guillermo Leaño
+- Valentina Pacheco
+
+

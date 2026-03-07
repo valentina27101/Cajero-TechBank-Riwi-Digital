@@ -1,18 +1,27 @@
-from colores import *
 from utils import *
-from utils import authentication
+import os
+import time 
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
+
 
 Saldo = 1000
 
-authentication(pin = "1234", intentos_pin = 3)
+
+clear()
+color_pagina_principal("Bienvenid@ al cajero TechBank de Riwi")
 
 
+authentication(pin="1234", intentos_pin=3)
 
-#Aquí va el autenticador#
+
+clear()
 
 
-color_pagina_principal("Iniciaste sesión correctamente, bienvenid@ al cajero TechBank de Riwi")
-    
+time.sleep(1)  
+
 saldo_inicial = 1000
+
 
 menu_cajero()

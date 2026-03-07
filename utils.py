@@ -1,13 +1,18 @@
+from colores import *
+import os
+import time
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def menu_cajero():
-    from colores import subtitulo_panel
-    from colores import mensaje_error, mensaje_exito, mensaje_info
-    from colores import color_pagina_principal
-    from colores import color_opcion
 
     saldo_inicial = 1000
 
     while True:
 
+        clear()
         color_pagina_principal("Página principal:")
         subtitulo_panel("Opción 1 → Consultar saldo")
         subtitulo_panel("Opción 2 → Retirar saldo")
@@ -20,84 +25,111 @@ def menu_cajero():
 
         except ValueError:
             mensaje_error("Debe ingresar un número válido, intente nuevamente")
+            input("Presione Enter para continuar...")
             continue 
 
         if opcion == 1:
+            clear()
             mensaje_exito(f"El monto actual es: {saldo_inicial}")
+            input("Presione Enter para volver al menú...")
 
         elif opcion == 2:
             while True:
+                clear()
                 subtitulo_panel("¿Cuánto dinero desea retirar?")
 
                 try:
                     monto = float(input("→ "))
                 except ValueError:
                     mensaje_error("Debe ingresar un número válido, intente nuevamente")
+                    input("Presione Enter para reintentar...")
                     continue
 
                 if monto > saldo_inicial:
-                    mensaje_error("No puede retirar más de su saldo actual, intente nuevamente")
+                    mensaje_error("No puede retirar más de su saldo actual")
+                    input("Presione Enter para reintentar...")
                     continue
 
                 elif monto <= 0:
-                    mensaje_error("Monto inválido, intente nuevamente")
+                    mensaje_error("Monto inválido")
+                    input("Presione Enter para reintentar...")
                     continue
 
                 else:
                     saldo_inicial -= monto
                     mensaje_exito(f"Saldo restante: {saldo_inicial}")
+                    input("Presione Enter para continuar...")
                     break
 
         elif opcion == 3:
             while True:
+                clear()
                 subtitulo_panel("¿Cuánto dinero desea depositar?")
 
                 try:
                     monto = float(input("→ "))
                 except ValueError:
-                    mensaje_error("Debe ingresar un número válido, intente nuevamente")
+                    mensaje_error("Debe ingresar un número válido")
+                    input("Presione Enter para reintentar...")
                     continue
 
                 if monto <= 0:
-                    mensaje_error("Monto inválido, intente nuevamente")
+                    mensaje_error("Monto inválido")
+                    input("Presione Enter para reintentar...")
                     continue
                 else:
                     saldo_inicial += monto
                     mensaje_exito(f"Saldo restante: {saldo_inicial}")
+                    input("Presione Enter para continuar...")
                     break
 
         elif opcion == 4:
+            clear()
             mensaje_exito("Gracias por usar el cajero Tech Bank Riwi")
+            time.sleep(3)
             break
 
         else:
             mensaje_error("Opción inválida")
+            input("Presione Enter para reintentar...")
+
+
 def authentication(pin, intentos_pin):
+
     while intentos_pin > 0:
-        
-        pin_usuario = input("Ingrese su PIN: ")
-    
-        # Validar que solo tenga números
+
+        clear()
+        subtitulo_panel("Ingrese su PIN: ")
+        pin_usuario = input("→ ")
+
         if not pin_usuario.isdigit():
-            print("Error: el PIN solo debe tener numeros.")
+            mensaje_error("Error: el PIN solo debe tener números.")
             intentos_pin -= 1
-            print("Intentos restantes:", intentos_pin)
+            color_pagina_principal(f"Intentos restantes: {intentos_pin}")
+            input("Presione Enter para reintentar...")
             continue
 
-        # Validar que tenga 4 dígitos
         if len(pin_usuario) != 4:
-            print("Error: el PIN debe tener 4 digitos.")
+            mensaje_error("Error: el PIN debe tener 4 dígitos.")
             intentos_pin -= 1
-            print("Intentos restantes:", intentos_pin)
+            color_pagina_principal(f"Intentos restantes: {intentos_pin}")
+            input("Presione Enter para reintentar...")
             continue
-    
+
         if pin_usuario == pin:
-            print("Acceso permitido")
+            clear()
+            mensaje_exito("Iniciaste sesión correctamente")
+            time.sleep(2)
             break
-        else: 
+
+        else:
             intentos_pin -= 1
-            print("PIN incorrecto")
-            print("Intentos restantes:", intentos_pin)
+            mensaje_error("PIN incorrecto")
+            color_pagina_principal(f"Intentos restantes: {intentos_pin}")
+            input("Presione Enter para reintentar...")
 
     if intentos_pin == 0:
-        print("Cuenta bloqueada")
+        clear()
+        mensaje_error("Cuenta bloqueada")
+        
+        exit()

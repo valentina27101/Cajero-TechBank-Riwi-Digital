@@ -4,13 +4,26 @@ from rich.align import Align
 
 console = Console()
 
+
+def mensaje_reintentar(texto):
+    console.print(
+        Panel(
+            Align.center(texto),
+            border_style="yellow",
+            style="bold yellow",
+            padding=(1,2),
+            width=50
+        )
+    )
+
 def subtitulo_panel(texto):
     console.print(
         Panel(
             Align.center(texto),
             border_style="cyan",
             style="bold white",
-            padding=(1, 2)
+            padding=(1, 2),
+            width=50
         )
     )
 
@@ -20,8 +33,8 @@ def mensaje_error(texto):
             Align.center(texto),
             border_style="red",
             style="bold red",
-            padding=(1, 2)
-        )
+            padding=(1, 2),
+            width=50)
     )
 
 def mensaje_exito(texto):
@@ -30,7 +43,8 @@ def mensaje_exito(texto):
             Align.center(texto),
             border_style="green",
             style="bold green",
-            padding=(1, 2)
+            padding=(1, 2),
+            width=50
         )
     )
 
@@ -40,7 +54,8 @@ def mensaje_info(texto):
             Align.center(texto),
             border_style="white",
             style="bold white",
-            padding=(1, 2)
+            padding=(1, 2),
+            width=50
         )
     )
 
@@ -50,7 +65,9 @@ def color_pagina_principal(texto):
             Align.center(texto),
             border_style="white",
             style="bold white",
-            padding=(1, 2)
+            padding=(1, 2),
+            width=50
+            
         )
     )
 
@@ -60,6 +77,7 @@ def color_opcion(texto):
             Align.center(texto),
             border_style="yellow",
             style="bold white",
-            padding=(1, 2)
+            padding=(1, 2),
+            width=50
         )
     )

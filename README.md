@@ -1,7 +1,7 @@
 ## Cajero-TechBank-Riwi-Digital
 ## Descripción
 Este proyecto tiene como proposito crear un simulador de cajero automático en consola utilizando Python.
-El programa permite que el usuario ingrese un PIN para autenticarse y, una vez dentro del sistema, pueda realizar diferentes operaciones básicas como consultar su saldo, retirar dinero, depositar dinero o ver el historial de movimientos.
+El programa permite que el usuario ingrese un PIN para autenticarse y, una vez dentro del sistema, pueda realizar diferentes operaciones básicas como consultar su saldo, retirar dinero, depositar dinero, ver el historial de movimientos o cerrar sesión.
 
 ## Objetivo
 
@@ -11,8 +11,8 @@ Además, busca fomentar el trabajo en equipo y el uso de herramientas de control
 ## Funciones
 El sistema del cajero incluye las siguientes funciones principales:
 - authentication(): se encarga de verificar el PIN del usuario antes de permitir el acceso al sistema.
-- menu_cajero(): muestra el menú principal y permite al usuario seleccionar las operaciones disponibles.
--Funciones de formato del módulo colores: se utilizan para mostrar mensajes organizados en la consola (títulos, errores, opciones y mensajes de éxito).
+- menu_cajero(): muestra el menú principal y permite al usuario seleccionar las operaciones disponibles. 
+- Funciones de formato del módulo colores: se utilizan para mostrar mensajes organizados en la consola (títulos, errores, opciones y mensajes de éxito).
 
 ## Reglas del sistema
 El cajero sigue algunas reglas para garantizar su correcto funcionamiento:

@@ -1,14 +1,20 @@
+import datetime
 from colores import *
 import os
 import time
+from datetime import datetime
+
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def menu_cajero():
-
+    
     saldo_inicial = 1000
+    historial = []
+    
+    
 
     while True:
 
@@ -17,10 +23,11 @@ def menu_cajero():
         subtitulo_panel("Opción 1 → Consultar saldo")
         subtitulo_panel("Opción 2 → Retirar saldo")
         subtitulo_panel("Opción 3 → Depositar saldo")
-        subtitulo_panel("Opción 4 → Cerrar sesión")
+        subtitulo_panel("Opción 4 → Ver historial de transacciones")
+        subtitulo_panel("Opción 5 → Cerrar sesión")
 
         try:
-            color_opcion("Seleccione una opción: 1, 2, 3 o 4")
+            color_opcion("Seleccione una opción: 1, 2, 3, 4 o 5")
             opcion = int(input("→ "))
 
         except ValueError:
@@ -56,9 +63,11 @@ def menu_cajero():
                     continue
 
                 else:
-                    saldo_inicial -= monto
-                    mensaje_exito(f"Saldo restante: {saldo_inicial}")
+                    nuevo_saldo = saldo_inicial - monto
+                    mensaje_exito(f"Saldo restante: {nuevo_saldo}")
                     input("Presione Enter para continuar...")
+                    historial_transacciones(saldo_inicial, monto, nuevo_saldo, historial, "retiro")
+                    saldo_inicial = nuevo_saldo
                     break
 
         elif opcion == 3:
@@ -78,16 +87,44 @@ def menu_cajero():
                     input("Presione Enter para reintentar...")
                     continue
                 else:
-                    saldo_inicial += monto
-                    mensaje_exito(f"Saldo restante: {saldo_inicial}")
+                    nuevo_saldo = saldo_inicial + monto
+                    mensaje_exito(f"Saldo restante: {nuevo_saldo}")
                     input("Presione Enter para continuar...")
+                    historial_transacciones(saldo_inicial, monto, nuevo_saldo, historial, "deposito")
+                    saldo_inicial = nuevo_saldo
                     break
 
+        
+        
         elif opcion == 4:
+            clear()
+            clear()
+            print("Historial de transacciones:\n")
+
+            if not historial:
+                print("No hay transacciones registradas.")
+            else:
+                for i, transaccion in enumerate(historial, 1):
+                    print(f"Transacción #{i}")
+                    print("-" * 30)
+
+                    for clave, valor in transaccion.items():
+                        print(f"{clave.capitalize():20}: {valor}")
+
+                    print("-" * 30)
+
+            input("Presione Enter para continuar...")
+                   
+            
+            
+
+        elif opcion == 5:
             clear()
             mensaje_exito("Gracias por usar el cajero Tech Bank Riwi")
             time.sleep(3)
             break
+            
+
 
         else:
             mensaje_error("Opción inválida")
@@ -132,3 +169,16 @@ def authentication(pin, intentos_pin):
         clear()
         mensaje_error("Cuenta bloqueada")
         exit()
+
+
+
+def historial_transacciones(saldo_inicial, monto, nuevo_saldo, historial, tipo):
+        registro = {
+            "saldo inicial": saldo_inicial,
+            f"monto de {tipo}": monto,
+            f"hora del {tipo}": datetime.now().strftime("%H:%M:%S"),
+            "saldo final": nuevo_saldo,                
+                        }
+        historial.append(registro)
+                    
+

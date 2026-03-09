@@ -48,18 +48,25 @@ El funcionamiento general del programa sigue el siguiente flujo:
 main.py → archivo principal que ejecuta el programa  
 utils.py → contiene funciones como authentication() y menu_cajero()  
 colores.py → contiene funciones para mostrar mensajes con formato en consola
+requirements.txt → dependencias
 
 ## Cómo ejecutar el proyecto
 
 1. Clonar el repositorio.
 2. Abrir el proyecto en Visual Studio Code.
 3. Ejecutar el archivo principal con Python.
+4. Instalar las dependencias que estan en requirements con el siguiente comando
+   ```python
+   pip install -r requirements.txt
 
 ## Tecnologías utilizadas
 
 - Python
 - Git
 - Github
+
+
+
 
 ## Integrantes
 

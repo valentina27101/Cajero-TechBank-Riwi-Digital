@@ -52,20 +52,31 @@ requirements.txt → dependencias
 
 ## Cómo ejecutar el proyecto
 
-1. Clonar el repositorio.
-2. Abrir el proyecto en Visual Studio Code.
-3. Ejecutar el archivo principal con Python.
-4. Instalar las dependencias que estan en requirements con el siguiente comando
-   ```python
-   pip install -r requirements.txt
+### 1. Clonar el repositorio
+    
+1. Abre **Visual Studio Code**.
+2. Abre la **terminal** (Terminal → New Terminal).
+3. Copia y ejecuta el siguiente comando para clonar el repositorio:
+```python
+git clone https://github.com/valentina27101/Cajero-TechBank-Riwi-Digital.git
+```
+### 2. Entrar a la carpeta del proyecto
+
+Después de clonar el repositorio, accede a la carpeta del proyecto con el siguiente comando:
+
+cd RIWI_ENTREGABLE
+
+### 3. Ejecutar el proyecto
+Para ejecutar el programa, usa el siguiente comando en la terminal:
+```python
+python main.py
+```
 
 ## Tecnologías utilizadas
 
 - Python
 - Git
 - Github
-
-
 
 
 ## Integrantes
